@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>interactive_resume</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+			background-color:#FFFFFF;
+			margin:0;
+			height:100%;
+		}
+	</style>
+	<!-- copy these lines to your document head: -->
+
+	<meta name="viewport" content="user-scalable=yes, width=900" />
+	<script type="text/javascript" src="interactive_resume.hyperesources/Tone.min.js"></script>
+	<script type="text/javascript" src="interactive_resume.hyperesources/jquery-3.2.1.min.js"></script>
+	<script>
+	var Loops = [];
+	var Instruments = [];
+	var timelineIsActive = false;
+	Tone.context.latencyHint = 'balanced'
+	Tone.Transport.bpm.value = 118
+	Tone.Transport.start("+0.1")
+	
+	var freeverb = new Tone.Freeverb().toMaster();
+	fmSynth = new Tone.PolySynth(4, Tone.Synth).connect(freeverb);
+	noiseSynth = new Tone.DuoSynth().toMaster();
+	otherSynth = new Tone.AMSynth().toMaster();
+	var Chord = [];
+	</script>
+	
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	 <script type="text/javascript">
+  function myCallback(hypeDocument, element, event) {
+    if (isScalePossible()){
+      window.myHypeContainerId = hypeDocument.documentId();
+      $('#' + window.myHypeContainerId).css({
+        '-moz-transform-origin': '0% 0%',
+        '-webkit-transform-origin': '0% 0%',
+        '-ms-transform-origin': '0% 0%',
+        '-o-transform-origin': '0% 0%',					
+        'transform-origin': '0% 0%',
+        margin: 0
+      });
+      scaleSite();
+      $(window).resize(scaleSite);
+    }
+    return true;
+  }
+  if("HYPE_eventListeners" in window === false) {
+    window.HYPE_eventListeners = Array();
+  }
+  window.HYPE_eventListeners.push({"type":"HypeDocumentLoad", "callback":myCallback});
+  function scaleSite()
+  {
+  	var hypeContainer = $('#' + window.myHypeContainerId);
+    var containerWidth = hypeContainer.width();
+    var containerHeight = hypeContainer.height();
+    var parentWidth = hypeContainer.parent().width();
+    var parentHeight = hypeContainer.parent().height();
+    var scaleWidth = parentWidth / containerWidth;
+    var scaleHeight = parentHeight / containerHeight;
+    var scale = Math.min(scaleWidth, scaleHeight);
+    var left = (containerWidth * scale < parentWidth) ? ((parentWidth - (containerWidth * scale)) / 2) + 'px' : '0px';
+    var top = (containerHeight * scale < parentHeight) ? ((parentHeight - (containerHeight * scale)) / 2) + 'px' : '0px' ;
+    hypeContainer.css({
+        "-moz-transform"    : "scale("+scale+")",
+        "-webkit-transform" : "scale("+scale+")",
+        "-ms-transform"     : "scale("+scale+")",
+        "-o-transform"      : "scale("+scale+")",
+        "transform"         : "scale("+scale+")",
+        "left" : left,
+        "top" : top
+    });
+  }
+  function isScalePossible() 
+  {
+    can = 'MozTransform' in document.body.style;
+    if(!can) can = 'webkitTransform' in document.body.style;
+    if(!can) can = 'msTransform' in document.body.style;
+    if(!can) can = 'OTransform' in document.body.style;
+    if(!can) can = 'transform' in document.body.style;
+    if(!can) can = 'Transform' in document.body.style;
+    return can;
+  }
+</script>
+
+	<!-- end copy -->
+  </head>
+  <body>
+	<!-- copy these lines to your document: -->
+
+	<div id="interactiveresume_hype_container" style="margin:auto;position:relative;width:900px;height:450px;overflow:hidden;">
+		<script type="text/javascript" charset="utf-8" src="interactive_resume.hyperesources/interactiveresume_hype_generated_script.js?86681"></script>
+	</div>
+
+	<!-- end copy -->
+	
+
+
+	<!-- text content for search engines: -->
+
+	<div style="display:none" aria-hidden=true>
+
+		<div>N
+</div>
+		<div>Learner
+</div>
+		<div></div>
+		<div>PHP, Apache, Linux, Nginx, MYSQL, MongoDB, Javascript, HTML/CSS, Laravel, Silex, Zend, Phalcon, Vue.js, Meteor.js, Vagrant, Jquery, Bootstrap, Foundation, Ableton, Hype Tumult, Tone.js, ORM, PDO, Domain Driven Design, Agile, SCRUM, German, Spanish, Japanese, Violin, Wordpress, Magento, AWS, APIs, Payment Processors, C++, Java, XML, REST API, Animation, Sound design, PHPUnit, Node.js, Bolt, Blade, Angular.js, Canva,</div>
+		<div>Adept</div>
+		<div>Musician, Audiophile, Sound Engineer, Violinist, Multi Instrumentalist, Dancer, Live Looper, Guitar, Bass, Drums, Orch Dork, Indie Bander, Performer,</div>
+		<div>A</div>
+		<div>NOISY</div>
+		<div>Sound Design
+
+</div>
+		<div>L
+</div>
+		<div>7 Years Professional Experience</div>
+		<div>aA</div>
+		<div>Event Production
+</div>
+		<div>20+ Previous Clients, and Companies</div>
+		<div>Adaptable</div>
+		<div>Community Building
+</div>
+		<div>Passionate about Innovative Creation</div>
+		<div>Full Stack Development
+</div>
+
+	</div>
+
+	<!-- end text content: -->
+
+  </body>
+</html>
