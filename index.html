@@ -26,11 +26,21 @@
 	Tone.context.latencyHint = 'balanced'
 	Tone.Transport.bpm.value = 118
 	Tone.Transport.start("+0.1")
+			
 	
-	var freeverb = new Tone.Freeverb().toMaster();
-	fmSynth = new Tone.PolySynth(4, Tone.Synth).connect(freeverb);
-	noiseSynth = new Tone.DuoSynth().toMaster();
-	otherSynth = new Tone.AMSynth().toMaster();
+	var vol = new Tone.Volume(-12).toMaster();;
+	var vol2 = new Tone.Volume(-12).toMaster();
+	var freeverb = new Tone.Freeverb().connect(vol);
+	
+	fmSynth = new Tone.PolySynth(4, Tone.Synth).connect(vol)	;
+	noiseSynth = new Tone.DuoSynth().connect(vol);
+	otherSynth = new Tone.AMSynth().connect(vol);
+	kick = new Tone.MembraneSynth().connect(vol);
+	bass1 = new Tone.MembraneSynth().connect(vol);
+    bass2 = new Tone.MembraneSynth().connect(vol);
+    
+    var SynthNoteIndex = 0;
+
 	var Chord = [];
 	</script>
 
@@ -95,7 +105,7 @@
 	<!-- copy these lines to your document: -->
 
 	<div id="interactiveresume_hype_container" style="margin:auto;position:relative;width:900px;height:450px;overflow:hidden;">
-		<script type="text/javascript" charset="utf-8" src="interactive_resume.hyperesources/interactiveresume_hype_generated_script.js?28873"></script>
+		<script type="text/javascript" charset="utf-8" src="interactive_resume.hyperesources/interactiveresume_hype_generated_script.js?74982"></script>
 	</div>
 
 	<!-- end copy -->
